@@ -1,4 +1,4 @@
-# LUCID Neural Analysis
+# LUCID Classifiers Analysis
 This analysis program was made so that various institutes such as CERN@School and the Institute for Research in Schools can use this program for analysing their data from Timepix or Medipix particle detectors.
 
 ![CERN@School](http://cernatschool.web.cern.ch/sites/cernatschool.web.cern.ch/files/images/logos/IRIS_logo_white-backing.JPG)
@@ -11,7 +11,7 @@ The neural_model folder contains the neural model used for classification. The n
 
 The benchmark_classifiers folder contains all the classifiers used for testing against the neural network.
 
-LNA API
+LCA API
 --------
 ```
 from lucid_classifiers.analysis import classify
