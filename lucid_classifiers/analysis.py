@@ -13,7 +13,7 @@ def neural_predict(cluster):
 
     classes = ["gamma", "beta", "muon", "proton", "alpha", "others"]
     this_dir, this_filename = os.path.split(__file__)
-    model_name = '\model5.meta'
+    model_name = os.path.sep + 'model5.meta'
     LOG_DIR = os.path.join(this_dir, "neural_model")
 
     checkpoint = tf.train.latest_checkpoint(LOG_DIR)
@@ -40,7 +40,7 @@ def classify(cluster, tp=''):
     if tp == "neural":
         out = neural_predict(cluster)
     elif tp in ["svm","knn","dt","rf"]:
-        with open(LOG_DIR+'/'+tp+'.pkl', 'rb') as f:
+        with open(os.path.join(LOG_DIR, tp + '.pkl'), 'rb') as f:
            clf = pickle.load(f, encoding='latin1')
         out = classes[int(clf.predict([metric_int])/2)]
     elif tp == "lucid":
@@ -49,7 +49,7 @@ def classify(cluster, tp=''):
         preds = []
         preds.append(neural_predict(cluster))
         for tp in ["svm","knn","dt","rf"]:
-            with open(LOG_DIR+'/'+tp+'.pkl', 'rb') as f:
+            with open(os.path.join(LOG_DIR, tp + '.pkl'), 'rb') as f:
                clf = pickle.load(f, encoding='latin1')
             preds.append(classes[int(clf.predict([metric_int])/2)])
         preds.append(lucid_classify(cluster))
