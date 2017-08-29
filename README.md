@@ -13,7 +13,7 @@ The benchmark_classifiers folder contains all the classifiers used for testing a
 
 LCA API
 --------
-```
+```python
 from lucid_classifiers.analysis import classify
 
 blob = [[0,0],[0,1],[1,0],[1,1],[0,2],[1,2],[0,3],[1,3]]
